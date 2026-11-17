@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini Skill Generator — Create SKILL.md Files for Gemini &amp; Claude</title>
+<meta name="description" content="Free Gemini Skill Generator: create a downloadable SKILL.md file in your browser and upload it to Gemini, Claude, ChatGPT or Copilot. Gems become read-only on Nov 17, 2026 — migrate your Gems to Skills before the Dec 17 deletion.">
+<meta property="og:title" content="Gemini Skill Generator — Create SKILL.md Files for Gemini & Claude">
+<meta property="og:description" content="Generate a valid SKILL.md file for free, right in your browser. No sign-up, nothing uploaded. Works with Gemini, Claude, ChatGPT and Copilot.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0b1020; --panel:#131a2e; --panel2:#0f1526; --line:#26314f;
+    --text:#e8ecf6; --muted:#9aa7c4; --accent:#7aa2ff; --accent2:#38d6a5;
+    --warn:#ffb454; --err:#ff7a7a; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+  .wrap{max-width:880px;margin:0 auto;padding:28px 18px 60px}
+  header{text-align:center;padding:26px 0 8px}
+  h1{font-size:2.1rem;margin:0 0 10px;letter-spacing:-.02em}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:640px;margin:0 auto;font-size:1.02rem}
+  .deadline{margin:20px auto 0;max-width:680px;background:#2a1f0d;border:1px solid #6b4d15;color:#ffd9a0;border-radius:var(--radius);padding:12px 16px;font-size:.95rem}
+  .deadline strong{color:var(--warn)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:26px}
+  .tabs{display:flex;gap:8px;margin-bottom:18px}
+  .tab{flex:1;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:.98rem;cursor:pointer;text-align:center}
+  .tab.active{background:var(--accent);border-color:var(--accent);color:#0b1020;font-weight:600}
+  label{display:block;font-size:.88rem;color:var(--muted);margin:14px 0 5px}
+  label:first-of-type{margin-top:0}
+  input[type=text],textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px 12px;font-size:.97rem;font-family:inherit}
+  textarea{resize:vertical;min-height:96px}
+  input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+  .hint{font-size:.8rem;color:var(--muted);margin-top:4px}
+  .err{color:var(--err);font-size:.85rem;margin-top:5px;display:none}
+  .warnbox{background:#2a1f0d;border:1px solid #6b4d15;color:#ffd9a0;border-radius:10px;padding:11px 14px;font-size:.9rem;margin-top:16px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  button.btn{padding:12px 20px;border-radius:10px;border:none;font-size:1rem;cursor:pointer;font-weight:600}
+  .primary{background:var(--accent2);color:#06231a}
+  .secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+  button.btn:active{transform:translateY(1px)}
+  .output{margin-top:22px;display:none}
+  .output pre{background:#070b16;border:1px solid var(--line);border-radius:10px;padding:16px;overflow:auto;max-height:420px;font-size:.86rem;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+  .output .actions{margin-top:12px}
+  .ok{color:var(--accent2);font-size:.88rem;margin-left:6px;display:none}
+  h2{font-size:1.35rem;margin:38px 0 10px;letter-spacing:-.01em}
+  p,li{color:#cdd6ec}
+  .muted{color:var(--muted)}
+  ul{padding-left:20px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{margin:8px 0}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-top:10px}
+  summary{cursor:pointer;font-weight:600}
+  details p{margin:8px 0 2px}
+  footer{margin-top:44px;text-align:center;color:var(--muted);font-size:.85rem}
+  code{background:#070b16;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:.88em}
+  @media (max-width:560px){h1{font-size:1.6rem}.tabs{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Gemini <span class="grad">Skill Generator</span></h1>
+    <p class="sub">Create a valid <strong>SKILL.md</strong> file for free, right in your browser — then upload it to Gemini, Claude, ChatGPT or Copilot. No sign-up, no API calls, and nothing you type ever leaves your device.</p>
+    <div class="deadline">⏰ <strong>Gems deadline:</strong> personal Gems become <strong>read-only on November 17, 2026</strong> and are <strong>permanently deleted on December 17, 2026</strong>. Convert your Gems to Skills now while you still can.</div>
+  </header>
+
+  <section class="card" aria-label="Skill generator">
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tabA" role="tab" onclick="switchMode('A')">✨ Create a new Skill</button>
+      <button class="tab" id="tabB" role="tab" onclick="switchMode('B')">🔄 Migrate a Gem</button>
+    </div>
+
+    <!-- Mode A: from scratch -->
+    <div id="modeA">
+      <label for="a-name">Skill name <span class="muted">(lowercase letters, numbers and hyphens only, e.g. <code>meeting-notes-writer</code>)</span></label>
+      <input type="text" id="a-name" placeholder="meeting-notes-writer" autocomplete="off" spellcheck="false">
+      <div class="err" id="a-name-err">Name must be lowercase-hyphen format: only a–z, 0–9 and hyphens, no spaces, no leading/trailing hyphen.</div>
+
+      <label for="a-desc">Description — what does this Skill do?</label>
+      <input type="text" id="a-desc" placeholder="Turns raw meeting notes into a clean summary with action items.">
+
+      <label for="a-when">When to use it — describe the situations that should trigger this Skill</label>
+      <textarea id="a-when" placeholder="Use when the user pastes meeting notes, a call transcript, or asks to summarize a meeting."></textarea>
+
+      <label for="a-inst">Instructions — the step-by-step instructions the AI should follow</label>
+      <textarea id="a-inst" style="min-height:130px" placeholder="1. Extract decisions, action items (with owners), and open questions.&#10;2. Write a summary of at most 5 bullet points.&#10;3. Output in Markdown with ## Summary, ## Decisions, ## Action Items sections."></textarea>
+    </div>
+
+    <!-- Mode B: migrate from a Gem -->
+    <div id="modeB" style="display:none">
+      <label for="b-name">Skill name <span class="muted">(lowercase-hyphen format; leave blank to auto-generate from your text)</span></label>
+      <input type="text" id="b-name" placeholder="my-migrated-gem" autocomplete="off" spellcheck="false">
+      <div class="err" id="b-name-err">Name must be lowercase-hyphen format: only a–z, 0–9 and hyphens, no spaces, no leading/trailing hyphen.</div>
+
+      <label for="b-desc">Short description <span class="muted">(optional — what did this Gem do?)</span></label>
+      <input type="text" id="b-desc" placeholder="e.g. A friendly writing coach that improves my drafts.">
+
+      <label for="b-inst">Paste your Gem's instructions here</label>
+      <textarea id="b-inst" style="min-height:150px" placeholder="Paste the full instructions / system prompt from your old Gem…"></textarea>
+
+      <div class="warnbox">⚠️ <strong>Check your attachments before you migrate.</strong> Google auto-converts Gems into Skill drafts, but each Skill is capped at <strong>100 MB total</strong> for its files. If a Gem's attachments exceed 100 MB, the largest files are dropped first, from largest to smallest. Download and back up any big attachments from your Gems before December 17, 2026.</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" onclick="generate()">Generate SKILL.md</button>
+    </div>
+
+    <div class="output" id="output">
+      <label>Your SKILL.md</label>
+      <pre id="preview"></pre>
+      <div class="actions">
+        <button class="btn primary" onclick="downloadFile()">⬇ Download SKILL.md</button>
+        <button class="btn secondary" onclick="copyText()">📋 Copy to clipboard</button>
+        <span class="ok" id="copyOk">Copied ✓</span>
+      </div>
+    </div>
+  </section>
+
+  <h2>What is a SKILL.md file?</h2>
+  <p>A <code>SKILL.md</code> file is a small Markdown file in the open <strong>Agent Skills</strong> format. It has a short header (the skill's name and description) followed by plain-language instructions that tell an AI assistant how to do one specific job — the same role a Gem's instructions played, but in a portable file you own.</p>
+  <p>Because the format is open (it was handed over to the Linux Foundation in October 2026), <strong>the same SKILL.md file works across tools</strong>: upload it to Gemini as a Skill, or use it in Claude, ChatGPT and Copilot. One file, every assistant — no lock-in to a single app.</p>
+
+  <h2>Why migrate? Gems are going away</h2>
+  <p>Google announced on September 30, 2026 that <strong>Skills replace Gems</strong> in Gemini. For personal accounts, Gems become <strong>read-only on November 17, 2026</strong> and are <strong>permanently deleted on December 17, 2026</strong>. Google will auto-convert your Gems into Skill drafts, but anything over the 100 MB per-Skill file limit gets trimmed — largest attachments first. Rebuilding your best Gems as clean SKILL.md files with this generator takes a minute and gives you a backup that also works outside Gemini.</p>
+
+  <h2>How to use your generated file</h2>
+  <ol class="steps">
+    <li><strong>1. Generate</strong> — fill in the form above (or paste a Gem's instructions in the Migrate tab) and click <em>Generate SKILL.md</em>.</li>
+    <li><strong>2. Download</strong> — save the file as <code>SKILL.md</code>. Keep a copy somewhere safe; it is your portable backup.</li>
+    <li><strong>3. Upload</strong> — in Gemini, create a new Skill and upload the file. In Claude, ChatGPT or Copilot, add the same file wherever custom skills / instructions files are accepted.</li>
+    <li><strong>4. Try it</strong> — start a chat and ask for the task you described; the assistant will follow your Skill's instructions.</li>
+  </ol>
+
+  <h2>Rules worth knowing</h2>
+  <ul>
+    <li><strong>Name format:</strong> lowercase letters, numbers and hyphens only (e.g. <code>seo-title-checker</code>). The generator validates this for you.</li>
+    <li><strong>100 MB limit:</strong> all files attached to one Skill must total 100 MB or less.</li>
+    <li><strong>Portable:</strong> one SKILL.md can be reused in Gemini, Claude, ChatGPT and Copilot.</li>
+    <li><strong>Private by design:</strong> this page runs 100% in your browser. Your text is never sent to a server or stored anywhere.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <details>
+    <summary>What's the difference between a Skill and a Gem?</summary>
+    <p>Skills are Google's replacement for Gems in Gemini. A Gem lived only inside your Gemini account; a Skill is based on a portable SKILL.md file you can download, back up and reuse. Personal Gems become read-only on November 17, 2026 and are deleted on December 17, 2026, so the time to move is now.</p>
+  </details>
+  <details>
+    <summary>What exactly is SKILL.md?</summary>
+    <p>SKILL.md is a Markdown file in the Agent Skills format: a name + description header, followed by instructions in plain language. You can upload it directly to Claude, and the same file works in Gemini, ChatGPT and Copilot.</p>
+  </details>
+  <details>
+    <summary>Where do I use the file this generator creates?</summary>
+    <p>Download it, then upload it where your assistant accepts skills: create a Skill in Gemini, or add it in Claude, ChatGPT or Copilot. The file is identical for all of them — generate once, use everywhere.</p>
+  </details>
+  <details>
+    <summary>Will I lose my old Gems?</summary>
+    <p>Google auto-converts Gems into Skill drafts, but each Skill is capped at 100 MB of files, and oversized attachments are dropped from largest to smallest. If your Gems have important attachments, download them before December 17, 2026 — and pasting your Gem's instructions into the Migrate tab above gives you a clean, portable copy regardless.</p>
+  </details>
+
+  <footer>
+    Free tool · Runs entirely in your browser · No data collected<br>
+    Not affiliated with Google. Gemini, Claude, ChatGPT and Copilot are trademarks of their respective owners.
+  </footer>
+</div>
+
+<script>
+var mode = 'A';
+var generated = '';
+
+function switchMode(m){
+  mode = m;
+  document.getElementById('tabA').classList.toggle('active', m==='A');
+  document.getElementById('tabB').classList.toggle('active', m==='B');
+  document.getElementById('modeA').style.display = m==='A' ? 'block' : 'none';
+  document.getElementById('modeB').style.display = m==='B' ? 'block' : 'none';
+}
+
+function slugify(s){
+  return (s||'').toLowerCase().trim()
+    .replace(/[^a-z0-9\s-]/g,'')
+    .replace(/[\s_]+/g,'-')
+    .replace(/-+/g,'-')
+    .replace(/^-+|-+$/g,'')
+    .slice(0,64).replace(/-+$/,'');
+}
+function validName(n){ return /^[a-z0-9]+(-[a-z0-9]+)*$/.test(n) && n.length<=64; }
+function yamlEscape(s){ return '"' + String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"') + '"'; }
+
+function generate(){
+  var name, desc, body;
+  if(mode==='A'){
+    name = document.getElementById('a-name').value.trim();
+    var err = document.getElementById('a-name-err');
+    if(!validName(name)){ err.style.display='block'; document.getElementById('a-name').focus(); return; }
+    err.style.display='none';
+    desc = document.getElementById('a-desc').value.trim() || 'A custom Gemini skill.';
+    var when = document.getElementById('a-when').value.trim();
+    var inst = document.getElementById('a-inst').value.trim();
+    body = '# ' + name + '\n\n## When to use this skill\n\n' + (when || '(Describe the situations that should trigger this skill.)')
+         + '\n\n## Instructions\n\n' + (inst || '(Write the step-by-step instructions the assistant should follow.)') + '\n';
+  } else {
+    var rawName = document.getElementById('b-name').value.trim();
+    var instB = document.getElementById('b-inst').value.trim();
+    var errB = document.getElementById('b-name-err');
+    if(rawName){
+      if(!validName(rawName)){ errB.style.display='block'; document.getElementById('b-name').focus(); return; }
+      name = rawName;
+    } else {
+      name = slugify(instB.split('\n')[0] || 'migrated-gem') || 'migrated-gem';
+    }
+    errB.style.display='none';
+    desc = document.getElementById('b-desc').value.trim() || 'Migrated from a Gemini Gem.';
+    body = '# ' + name + '\n\n## Instructions\n\n' + (instB || '(Paste your Gem instructions above.)')
+         + '\n\n---\nMigrated from a Gemini Gem. Reminder: each Skill is limited to 100 MB of attached files in total; oversized attachments are dropped largest-first during Google\'s auto-conversion, so back up large files separately.\n';
+  }
+  generated = '---\nname: ' + name + '\ndescription: ' + yamlEscape(desc) + '\n---\n\n' + body;
+  document.getElementById('preview').textContent = generated;
+  document.getElementById('output').style.display = 'block';
+  document.getElementById('output').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function downloadFile(){
+  if(!generated) return;
+  var blob = new Blob([generated], {type:'text/markdown'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'SKILL.md';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+}
+
+function copyText(){
+  if(!generated) return;
+  function done(){ var ok=document.getElementById('copyOk'); ok.style.display='inline'; setTimeout(function(){ ok.style.display='none'; }, 2000); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(generated).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=generated; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand('copy'); done(); }catch(e){} ta.remove();
+  }
+}
+</script>
+</body>
+</html>
